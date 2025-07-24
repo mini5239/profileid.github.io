@@ -15,17 +15,7 @@ window.addEventListener('mousemove', e => {
     gsap.to(follower, {duration: 0.6, x: e.clientX, y: e.clientY});
 });
 
-// 마우스 호버 효과
-document.querySelectorAll('a, button').forEach(el => {
-    el.addEventListener('mouseenter', () => {
-        gsap.to(cursor, { scale: 1.5 });
-        gsap.to(cursorFollower, { scale: 1.5 });
-    });
-    el.addEventListener('mouseleave', () => {
-        gsap.to(cursor, { scale: 1 });
-        gsap.to(cursorFollower, { scale: 1 });
-    });
-});        
+    
 
 // Fade in animations
 gsap.utils.toArray('.fade-in, .hero-content p, .section-title, .project-card, .projects-grid, .stat-item, .content-item, .timeline-item').forEach(elem => {
@@ -36,11 +26,11 @@ gsap.utils.toArray('.fade-in, .hero-content p, .section-title, .project-card, .p
                 trigger: elem,
                 start: "top bottom",
                 end: "bottom top",
-                toggleActions: "play none none reverse"
+                once:true,
             },
             opacity: 1,
             y: 0,
-            duration: 1
+            duration: 1,
         }
     );
 });
